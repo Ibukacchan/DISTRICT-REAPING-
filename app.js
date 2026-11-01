@@ -6,7 +6,8 @@ const districts=[
 {id:5,name:"The Alliance",motto:"Unite. Collaborate. Build Tomorrow.",color:"#a34bd2",file:"district-5.png",names:["Buhawe","Gamutan","Gales","Bunglay","Labial, S.","Risare","Tanghian"]}
 ];
 let participants=districts.flatMap(d=>d.names.map(name=>({name,district:d.id})));
-let selectedDistrict=0, history=[], chosen=null, soundOn=true, musicOn=false, busy=false;\nconst bgm=new Audio("./capitol-ambient-bgm.wav"); bgm.loop=true; bgm.volume=0.24;
+let selectedDistrict=0, history=[], chosen=null, soundOn=true, musicOn=false, busy=false;
+const bgm=new Audio("./capitol-ambient-bgm.wav"); bgm.loop=true; bgm.volume=0.24;
 const $=id=>document.getElementById(id);
 const total=()=>participants.length;
 const eligible=()=>participants.filter(p=>(!selectedDistrict||p.district===selectedDistrict)&&!history.some(h=>h.name===p.name&&h.district===p.district));
